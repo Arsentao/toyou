@@ -10,7 +10,20 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      "/proxy/": {
+        target: "http://openapi.tuling123.com",
+        secure: false,
+        changeOrigin: true,
+        pathRewrite: {
+          "^/proxy": ""
+        },
+        headers: {
+          "User-Agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Mobile Safari/537.36"
+        }
+      }
+
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

@@ -5,13 +5,10 @@ import App from './App'
 import router from './router'
 import VueWechatTitle from 'vue-wechat-title'
 import axios from 'axios'
-import VueAxios from 'vue-axios'
 
-
-Vue.use(VueWechatTitle).use(VueAxios).use(axios)
-
-
-
+axios.defaults.withCredentials = true;
+Vue.use(VueWechatTitle)
+Vue.prototype.$ajax = axios;
 Vue.config.productionTip = false
 // 挂载全局
 
@@ -20,6 +17,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  axios,
   components: { App },
   template: '<App/>'
 })

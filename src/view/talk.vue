@@ -30,9 +30,18 @@ export default {
     }
   },
 
+  mounted(){
+    this.scrollwindow()
+  },
+
   methods:{
+    scrollwindow() {
+        document.querySelector('.content').scrollTop = 99999
+        setTimeout(this.scrollwindow, 10);
+    },
+
+
     chat() {
-    
     if(this.inputValue == ''){
         return
     }
@@ -40,28 +49,29 @@ export default {
             message: this.inputValue,
             isSelf: true
         })
-
-      
-        this.axios.get(
-            url = 'http://www.tuling123.com/openapi/api',
-            parmas = {
-                userid:1,
-                key:'b6ef78a0c1f24fee90d2317139b9c3d5',
-                info:this.inputValue
-            }.then(res => {
-            this.messageList.push({
-                message: res.text,
-                isSelf: false
-            })
-            },res => {
-              this.messageList.push({
-                message: '发送失败',
-                isSelf: false
-            })
+    
+        this.$ajax.post(
+           '/proxy/openapi/api/v2',
+            {
+            perception: {
+                inputText: {
+                    text: this.inputValue
+                }, 
+            },
+            userInfo: {
+                apiKey: "b6ef78a0c1f24fee90d2317139b9c3d5",
+                userId: "1"
             }
+            }
+              ).then(res => {
+             this.messageList.push({
+                message: res.data.results[0].values.text,
+                isSelf: false
+              }
             )
-        )
-        this.inputValue=''; 
+            })
+          
+            this.inputValue=''; 
     }
 
   }
@@ -139,7 +149,7 @@ height: 50px;
 font-size: 16px;
 width: 100%;
 height: 620px;
-overflow-y: scroll;
+overflow: auto;
 }
 
 .content li {

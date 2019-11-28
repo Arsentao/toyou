@@ -29,7 +29,7 @@ export default new Router({
       name: 'talk',
       component: talk,
       meta: {
-        title: '撩我'
+        title: ''
       }
     },
     {
