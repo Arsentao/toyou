@@ -1,5 +1,6 @@
 <template>
   <div class="talk">
+    <audio autoplay ref='audio'></audio>
         <ul class="content">
             <li v-for="(item, index) in messageList" >
                 <img :src="(item.isSelf?require('../assets/talk/me.jpg'):require('../assets/talk/she.jpg'))" :class="'img'+(item.isSelf?'right':'left')">
@@ -59,7 +60,7 @@ export default {
                 }, 
             },
             userInfo: {
-                apiKey: "b6ef78a0c1f24fee90d2317139b9c3d5",
+                apiKey: "53c0fd516aa549c08beed1665bb63a16",
                 userId: "1"
             }
             }
@@ -69,15 +70,24 @@ export default {
                 isSelf: false
               }
             )
+
+            var tex  = 'tex=' + res.data.results[0].values.text + '&'
+            var tok  = 'tok=24.0127381a6bd9ec607850e2c38af04ad5.2592000.1577628367.282335-17894601&'
+            var lan  = 'lan=zh&'
+            var cuid = 'cuid=lin&'
+            var ctp  = 'ctp=1&'
+            var per  = 'per=103&'
+            var pit  = 'pit=8&'
+            var spd  = 'spd=5'
+            var url = '/api/text2audio?' + tex + tok + lan + cuid + ctp + per + pit + spd
+            this.$refs.audio.src = url
+
             })
-          
             this.inputValue=''; 
-    }
+    },
+
 
   }
-
-  
-
 }
 
 </script>
