@@ -5,7 +5,12 @@ import App from './App'
 import router from './router'
 import VueWechatTitle from 'vue-wechat-title'
 import axios from 'axios'
+import Vant from 'vant';
+import 'vant/lib/index.css';
+import { Dialog } from 'vant';
 
+
+Vue.use(Vant).use(Dialog)
 axios.defaults.withCredentials = true;
 Vue.use(VueWechatTitle)
 Vue.prototype.$ajax = axios;

@@ -2,7 +2,7 @@
   <div class="talk">
     <audio autoplay ref='audio'></audio>
         <ul class="content">
-            <li v-for="(item, index) in messageList" >
+            <li v-for="(item, index) in messageList" :key="index">
                 <img :src="(item.isSelf?require('../assets/talk/me.jpg'):require('../assets/talk/she.jpg'))" :class="'img'+(item.isSelf?'right':'left')">
                 <span :class="'span'+(item.isSelf?'right':'left')">{{item.message}}</span>
             </li>
@@ -79,7 +79,7 @@ export default {
             var per  = 'per=103&'
             var pit  = 'pit=8&'
             var spd  = 'spd=5'
-            var url = '/api/text2audio?' + tex + tok + lan + cuid + ctp + per + pit + spd
+            var url  = 'http://tsn.baidu.com/text2audio?' + tex + tok + lan + cuid + ctp + per + pit + spd
             this.$refs.audio.src = url
 
             })

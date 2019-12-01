@@ -3,7 +3,7 @@
     <footer>
       <ul class="foot-nav clearfix">
         <li :class="{'curr':navIndex==1}">
-          <router-link to="/index">
+          <router-link to="/day">
             <i class="foot-nav-icon foot-nav-index"></i>
             <span class="foot-nav-text">历程</span>
           </router-link>

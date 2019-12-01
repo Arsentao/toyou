@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+
 import index from '@/view/index'
+import day from '@/view/day'
 import photo from '@/view/photo'
 import talk from '@/view/talk'
 import trace from '@/view/trace'
@@ -21,7 +23,15 @@ export default new Router({
       name: 'index',
       component: index,
       meta: {
-        title: '二傻子❤️兔子精'
+        title: '萝卜头❤兔子精'
+      }
+    },
+    {
+      path: '/day',
+      name: 'day',
+      component: day,
+      meta: {
+        title: '历程'
       }
     },
     {

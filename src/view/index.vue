@@ -1,120 +1,89 @@
 <template>
   <div class="index">
-   <div class="logo">
-       <img src="../assets/index/love.jpg" width="100px" height="100px">
-   </div>
-
-<div class="dear">
-  <transition name = "fade">
-    <p v-show = "show1">亲爱的</p>
-  </transition>
-  <transition name = "fade">
-    <p v-show = "show2">这是我们</p>
-  </transition>
-  <transition name = "fade">
-    <p v-show = "show3">相爱在一起</p>
-  </transition>
-  <transition name = "fade">
-    <p v-show = "show4">的时光</p>
-  </transition>
-</div>
-
-<div class="time">
-  <transition name = "fade">
-    <p v-show = "show5"><span class="big">{{days}} </span><span class="small">days</span></p>
-  </transition>
-  <transition name = "fade">
-    <p v-show = "show6"> <span class="big">{{hours}} </span><span class="small">hours</span></p>
-  </transition>
-  <transition name = "fade">
-    <p v-show = "show7"><span class="big">{{minutes}} </span><span class="small">minutes</span></p>
-  </transition>
-  <transition name = "fade">
-    <p v-show = "show8"><span class="big">{{seconds}} </span><span class="small">seconds</span></p>
-  </transition>
-</div>
- 
-  <foot-nav :navIndex="1"></foot-nav>
-   </div>
+      <div class="touch" @click="alert1()">
+      </div>
+       <div class="reject" @click="reject()">
+      </div>
+  </div>
 </template>
 
 <script>
-import footNav from '../components/footer'
 export default {
-    components: {
-        footNav
-        },
-  data () {
-    return {
-       days: 0,
-       hours: 0,
-       minutes: 0,
-       seconds: 0,
-       show1: false,
-       show2: false,
-       show3: false,
-       show4: false,
-       show5: false,
-       show6: false,
-       show7: false,
-       show8: false,
-    }
-  },
+  methods:{
+  reject(){
+    this.$dialog.confirm({
+        message: '竟然拒绝我∪﹏∪你是猪ˋ△ˊ',
+        cancelButtonText: '对对对我是猪●▽●',
+        confirmButtonText: '对对对我是大笨猪●▽●',
+        cancelButtonColor: 'red',
+        confirmButtonColor: 'red'
+        }).then(() => {
+    }).catch(() => {
+    })
+    },
 
-  
-created(){
-  this.timedown()  
-  setInterval(this.timedown, 1000)
-  setInterval(this.setshow1, 1000)
-  setInterval(this.setshow2, 2000)
-  setInterval(this.setshow3, 3000)
-  setInterval(this.setshow4, 4000)
-  setInterval(this.setshow5, 5000)
-  setInterval(this.setshow6, 6000)
-  setInterval(this.setshow7, 7000)
-  setInterval(this.setshow8, 8000)
+
+
+    alert1(){
+        this.$dialog.confirm({
+        message: '你是不是猪猪￣▽￣',
+        cancelButtonText: '是又怎么样ˋ︿ˊ',
+        confirmButtonText: '被你发现了╯△╰',
+        cancelButtonColor: 'red',
+        confirmButtonColor: 'red'
+        }).then(() => {
+    this.alert2()
+    }).catch(() => {
+    this.alert2()
+    })
+    },
+
+
+      alert2(){
+    this.$dialog.confirm({
+      message: '嘻嘻~那我可不可爱￣▽￣',
+      cancelButtonText: '可爱≧▽≦',
+      confirmButtonText: '太可爱了≧▽≦',
+      cancelButtonColor: 'red',
+      confirmButtonColor: 'red'
+    }).then(() => {
+   this.alert3()
+}).catch(() => {
+  this.alert3()
+})
 },
 
-methods:{
-    timedown(){
-    var nowDate = new Date();
-    var loveDate = new Date("2019-10-7 0:00:00");
-    var totalSeconds = parseInt((nowDate - loveDate) / 1000);
-    this.days = Math.floor(totalSeconds / (60 * 60 * 24));
-    var modulo = totalSeconds % (60 * 60 * 24);
-    this.hours = Math.floor(modulo / (60 * 60));
-    modulo = modulo % (60 * 60);
-    this.minutes = Math.floor(modulo / 60);
-    this.seconds = modulo % 60;
+
+alert3(){
+    this.$dialog.confirm({
+      message: '嘻嘻嘻嘻~那你喜欢我吗￣▽￣',
+      cancelButtonText: '喜欢呀◐ω◑',
+      confirmButtonText: '爱你哟● 3●',
+      cancelButtonColor: 'red',
+      confirmButtonColor: 'red'
+    }).then(() => {
+   this.alert4()
+}).catch(() => {
+  this.alert4()
+})
 },
 
-   setshow1(){
-     this.show1 = true;
-   },
-   setshow2(){
-     this.show2 = true;
-   },
-   setshow3(){
-     this.show3 = true;
-   },
-   setshow4(){
-     this.show4 = true;
-   },
-   setshow5(){
-     this.show5 = true;
-   },
-   setshow6(){
-     this.show6 = true;
-   },
-   setshow7(){
-     this.show7 = true;
-   },
-   setshow8(){
-     this.show8 = true;
-   }
-}
-}
 
+alert4(){
+    this.$dialog.confirm({
+      message: '嘿嘿~我就知道你喜欢我￣▽￣\n那我就送你样礼物吧￣▽￣',
+      cancelButtonText: '(*^・_・)',
+      confirmButtonText: '(〃・ｏ・〃)',
+      cancelButtonColor: 'red',
+      confirmButtonColor: 'red'
+    }).then(() => {
+   this.$router.push('/day')
+}).catch(() => {
+   this.$router.push('/day')
+})
+},
+}
+}
 
 </script>
 
@@ -124,48 +93,29 @@ width: 100%;
 height: 100%;
 display: block;
 position: fixed;
-background: url("https://preview.qiantucdn.com/58pic/34/86/96/19f58PICBpP5Zprn8UgyK.gif!qt324new_nowater");
+background: url("../assets/index/call.jpg");
 background-size: 100% 100%;
 z-index: -100;
 overflow: auto;
 }
-.logo{
-width: 100px;
-height: 100px;
-border-radius: 50%;
-overflow: hidden;
-margin: 0 auto;
-margin-top: 5%;
-}
-.dear{
-font-size: 20px;
-font-weight: bold;
-margin-top: 33%;
-color: #666;
-text-align: left;
-line-height: 200%;
-margin-left: 17%;
-}
-.big{
-font-size: 25px;
-font-weight: bold;
-color: rgb(216, 27, 27)  
-}
-.small{
-font-size: 20px;
-color: #666  
-}
-.time{
-text-align: right;
-right: 17%;
-line-height: 200%;
+.touch{
+width: 150px;
+height: 150px;
 position: absolute;
-top: 53%
+bottom: 8%;
+right: 5%;
 }
-.fade-enter-active, .fade-leave-active {
-    transition: opacity 1s
+.reject{
+width: 150px;
+height: 150px;
+position: absolute;
+bottom: 8%;
+left: 5%;
 }
-.fade-enter, .fade-leave-to {
-    opacity: 0
+</style>
+
+<style>
+.van-dialog__message{
+font-size: 18px
 }
 </style>
