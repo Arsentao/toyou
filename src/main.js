@@ -2,17 +2,21 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import router from './router'
 import VueWechatTitle from 'vue-wechat-title'
 import axios from 'axios'
 import Vant from 'vant';
 import 'vant/lib/index.css';
 import { Dialog } from 'vant';
+import 'vue-event-calendar/dist/style.css' 
+import vueEventCalendar from 'vue-event-calendar'
+Vue.use(vueEventCalendar, {locale: 'zh',color: '#00abe6'}) 
+
 
 
 Vue.use(Vant).use(Dialog)
 axios.defaults.withCredentials = true;
 Vue.use(VueWechatTitle)
+import router from './router'
 Vue.prototype.$ajax = axios;
 Vue.config.productionTip = false
 // 挂载全局

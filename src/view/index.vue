@@ -113,9 +113,9 @@ bottom: 8%;
 left: 5%;
 }
 </style>
-
 <style>
 .van-dialog__message{
 font-size: 18px
 }
 </style>
+

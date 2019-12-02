@@ -93,10 +93,19 @@ export default {
 </script>
 
 <style scoped>
+.talk{
+width: 100%;
+height: 100%;
+display: block;
+position: fixed;
+background: url("https://fengpu1351-1300303301.file.myqcloud.com/%E5%A5%87%E5%A6%99%E5%AD%A6%E7%90%B4%E8%AE%B0/bg.jpg");
+background-size: 100% 100%;
+z-index: -100;
+overflow: auto;
+}
 .foot {
 width: 100%;
 height: 8%;
-background: white;
 position: absolute;
 bottom: 52px;
 position: fixed;

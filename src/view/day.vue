@@ -76,9 +76,8 @@ export default {
   },
 
   
-created(){
-  this.timedown()  
-  setTimeout(this.timedown, 1000)
+mounted(){
+  setInterval(this.timedown, 1000)
   setTimeout(this.setshow1, 1000)
   setTimeout(this.setshow2, 2000)
   setTimeout(this.setshow3, 3000)
@@ -93,7 +92,7 @@ created(){
 methods:{
     timedown(){
     var nowDate = new Date();
-    var loveDate = new Date("2019-10-7 0:00:00");
+    var loveDate = new Date("2019/10/7 0:00:00");
     var totalSeconds = parseInt((nowDate - loveDate) / 1000);
     this.days = Math.floor(totalSeconds / (60 * 60 * 24));
     var modulo = totalSeconds % (60 * 60 * 24);
@@ -209,7 +208,7 @@ top: 53%
 .type{
 font-family: "FangSong";
 position: absolute;
-bottom: 12%;
+bottom: 10%;
 font-size: 16px;
 color: #205a15;
 margin: 0 auto;
