@@ -93,22 +93,18 @@ export default {
 </script>
 
 <style scoped>
-.talk{
-width: 100%;
-height: 100%;
-display: block;
+.content{
 position: fixed;
-background: url("https://fengpu1351-1300303301.file.myqcloud.com/%E5%A5%87%E5%A6%99%E5%AD%A6%E7%90%B4%E8%AE%B0/bg.jpg");
+background: url("../assets/talk/bg.jpg");
 background-size: 100% 100%;
-z-index: -100;
+z-index: -1000;
 overflow: auto;
 }
 .foot {
 width: 100%;
 height: 8%;
-position: absolute;
 bottom: 52px;
-position: fixed;
+position: absolute;
 }
 
 .foot input {
@@ -139,6 +135,8 @@ right: 10%;
 top: 20%;
 line-height: 37px;
 color: white;
+z-index: 1000;
+cursor: pointer;
 }
 
 .span1 {
@@ -156,6 +154,7 @@ right: 10%;
 top: 20%;
 line-height: 37px;
 color: white;
+z-index: 1000;
 }
 
 

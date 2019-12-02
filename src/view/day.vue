@@ -227,8 +227,5 @@ transition: opacity 1s
 .fade-enter, .fade-leave-to {
 opacity: 0
 }
-@font-face {
-font-family:'WebSymbols';
-src: url('../assets/font/WebSymbols-Regular.otf');
-}
+
 </style>

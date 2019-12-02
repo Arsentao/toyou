@@ -79,6 +79,7 @@ ul.foot-nav > li {
   width: 25%;
   float: left;
   padding: 0.5em 0;
+  cursor: pointer;
 }
 .foot-nav-icon {
   display: block;
