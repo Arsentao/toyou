@@ -8,7 +8,7 @@
             </li>
         </ul>
         <div class="foot">
-            <input id="text" type="text" placeholder="和我聊天呗" v-model="inputValue">
+            <input id="text" type="text" placeholder="和我聊天呗" v-model="inputValue" @blur="msg()">
             <span id="btn" @click="chat" :class="{'span1':inputValue == '','span2':inputValue != ''}">发送</span>
         </div>
 
@@ -41,7 +41,9 @@ export default {
         setTimeout(this.scrollwindow, 10);
     },
 
-
+   msg(){
+   document.body.scrollTop = 0;
+   },
     chat() {
     if(this.inputValue == ''){
         return
@@ -93,7 +95,9 @@ export default {
 </script>
 
 <style scoped>
-.content{
+.talk{
+width: 100%;
+height: 100%;
 position: fixed;
 background: url("../assets/talk/bg.jpg");
 background-size: 100% 100%;
@@ -104,7 +108,7 @@ overflow: auto;
 width: 100%;
 height: 8%;
 bottom: 52px;
-position: absolute;
+position: fixed;
 }
 
 .foot input {
